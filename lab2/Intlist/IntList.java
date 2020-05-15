@@ -37,6 +37,15 @@ public class IntList {
      * Returns a list equal to L with all elements squared. Destructive.
      */
     public static void dSquareList(IntList L) {
+        /**
+         * Destructive method--dSquareList
+         *     By destructive, we mean that the original list changes.
+         *     The term “mutative” is also sometimes used
+         *     (as in discussion from week 2).
+         *
+         *     By contrast a non-destructive method like squareListIterative
+         *     does not affect the original list, e.g.
+         */
 
         while (L != null) {
             L.first = L.first * L.first;
@@ -134,21 +143,6 @@ public class IntList {
         L3.get();
         L4.get();
     }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
     /**
      * DO NOT MODIFY ANYTHING BELOW THIS LINE! Many of the concepts below here
@@ -273,3 +267,22 @@ public class IntList {
     }
 }
 
+/**
+ * ----------------Implementing Destructive vs. Non-destructive Methods----------------
+ * To complete the lab, you should write methods dcatenate and catenate as described below.
+ * You may find the squaring methods from above to be useful as you write your code.
+ *
+ * Both methods take in two IntLists, and concatenate them together. So
+ * catenate(IntList A, IntList B) and dcatenate(IntList A, IntList B) both result in an
+ * IntList which contains the elements of A followed by the elements of B.
+ *
+ * The only difference between these two methods is that dcatenate modifies the original
+ * IntList A (i.e. it’s destructive) and catenate does not.
+ *
+ * During the coding process, I happened to find that Recursion is a great idea to implement
+ * a Non-destructive method. On the contrary, you can use the iterative thinking to write the
+ * structure of destructive method.
+ *
+ * It’s also often useful to first think about base cases (when A is null, for example) - this
+ * works especially well for building up a recursive solution. In other words, write up a solution that would work for the base case, then stop and think about how to expand this solution into something that works for other bigger cases.
+ */
