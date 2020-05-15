@@ -82,7 +82,24 @@ public class IntList {
 
     public static IntList dcatenate(IntList A, IntList B) {
         //TODO:  fill in method
-        return null;
+        /**
+         * The recursive method is bound to change the pointer.
+         if (A.rest == null) {
+         A.rest = B;
+         return A;
+         }
+         return catenate(A.rest, B);
+         */
+        if (A == null) {
+            return B;
+        } else {
+            IntList con = A;
+            while (con.rest != null) {
+                con = con.rest;
+            }
+            con.rest = B;
+            return A;
+        }
     }
 
     /**
@@ -91,7 +108,31 @@ public class IntList {
      */
     public static IntList catenate(IntList A, IntList B) {
         //TODO:  fill in method
-        return null;
+        if (A == null) {
+            return B;
+        }
+        return new IntList(A.first, catenate(A.rest, B));
+    }
+
+    public void get() {
+        IntList G = this;
+        while (G != null) {
+            System.out.println(G.first);
+            G = G.rest;
+        }
+    }
+
+    public static void main(String[] args) {
+        IntList L1 = new IntList(15, null);
+        L1 = new IntList(10, L1);
+        L1 = new IntList(5, L1);
+        IntList L2 = new IntList(30, null);
+        L2 = new IntList(25, L2);
+        L2 = new IntList(20, L2);
+        IntList L3 = catenate(L1, L2);
+        IntList L4 = dcatenate(L1, L2);
+        L3.get();
+        L4.get();
     }
 
 
